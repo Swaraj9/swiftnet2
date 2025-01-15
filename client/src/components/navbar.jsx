@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button } from "./ui/button";
 import { Link } from "react-router";
 import { Badge } from "../components/ui/badge";
+import gitbookIcon from "../assets/gitbook.png";
 
 const Navbar = () => {
   const [copied, setCopied] = useState(false);
@@ -88,7 +89,7 @@ const Navbar = () => {
                   <img
                     width="50"
                     height="50"
-                    src="../../public/gitbook.png"
+                    src={gitbookIcon}
                     alt="Docs"
                   />
                 </Button>
