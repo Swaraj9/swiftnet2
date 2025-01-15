@@ -59,19 +59,6 @@ const Navbar = () => {
                             <div className="flex flex-col items-center space-y-1">
                                 <Button 
                                     variant="icon" 
-                                    className="flex items-center justify-center hover:scale-110 transition-all duration-300"
-                                >
-                                    <img 
-                                        width="35" 
-                                        height="35" 
-                                        src="https://img.icons8.com/?size=100&id=106562&format=png&color=000000" 
-                                        alt="Docs" 
-                                    />
-                                </Button>
-                            </div>
-                            <div className="flex flex-col items-center space-y-1">
-                                <Button 
-                                    variant="icon" 
                                     className="flex items-center justify-center"
                                 >
                                     <img 
