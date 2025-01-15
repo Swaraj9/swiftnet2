@@ -89,7 +89,7 @@ const Navbar = () => {
                   <img
                     width="35"
                     height="35"
-                    src="https://img.icons8.com/ios/50/google-docs.png"
+                    src="https://img.icons8.com/?size=100&id=100417&format=png&color=000000"
                     alt="Docs"
                   />
                 </Button>
