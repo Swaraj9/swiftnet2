@@ -48,6 +48,20 @@ const Navbar = () => {
                                     />
                                 </Button>
                             </div>
+                            
+                            <div className="flex flex-col items-center space-y-1">
+                                <Button 
+                                    variant="icon" 
+                                    className="flex items-center justify-center"
+                                >
+                                    <img 
+                                        width="35" 
+                                        height="35" 
+                                        src="https://img.icons8.com/ios/50/google-docs.png" 
+                                        alt="Docs" 
+                                    />
+                                </Button>
+                            </div>
                         </div>
                     </div>
                 </div>
