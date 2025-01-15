@@ -39,7 +39,7 @@ const Home = () => {
 
                 <div className="z-10 mt-8">
                     <ShimmerButton 
-                        className="shadow-lg hover:shadow-cyan-500/50 transition-all duration-300" 
+                        className="shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105" 
                         onClick={handleLogin}
                     >
                         <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-lg">
