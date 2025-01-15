@@ -16,11 +16,11 @@ const Navbar = () => {
                     <div className="hidden md:block">
                         <div className="ml-10 flex items-center space-x-4">
                             <Link to={"/docs"} target='_blank'>
-                                <Button variant="ghost">Docs</Button>
+                                <Button variant="ghost" className="text-gray-800">Docs</Button>
                             </Link>
-                            <Button variant="ghost">Features</Button>
-                            <Button variant="ghost">About</Button>
-                            <Button variant="ghost">Contact</Button>
+                            <Button variant="ghost" className="text-gray-800">Features</Button>
+                            <Button variant="ghost" className="text-gray-800">About</Button>
+                            <Button variant="ghost" className="text-gray-800">Contact</Button>
                         </div>
                     </div>
 

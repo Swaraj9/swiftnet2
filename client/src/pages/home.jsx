@@ -5,7 +5,23 @@ import Navbar from "../components/navbar"; // Add this import
 import { AnimatedBeamMultipleOutputDemo } from "../components/beams";
 import { MagicCard } from "@/components/ui/magic-card";
 import Footer from "../components/footer";
+import {usePrivy} from '@privy-io/react-auth';
+import { useNavigate } from "react-router";
+
 const Home = () => {
+
+    const { login } = usePrivy();
+    const navigate = useNavigate();
+
+    const handleLogin = async () => {
+        try {
+            await login();
+            navigate('/chat');
+        } catch (error) {
+            console.error('Login failed:', error);
+        }
+    };
+    
     return (
         <>
             <Navbar />
@@ -22,7 +38,7 @@ const Home = () => {
                 </p>
 
                 <div className="z-10 mt-8">
-                    <ShimmerButton className="shadow-2xl">
+                    <ShimmerButton className="shadow-2xl" onClick={handleLogin}>
                         <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
                             Get Started
                         </span>
