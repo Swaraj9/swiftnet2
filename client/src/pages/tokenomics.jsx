@@ -6,9 +6,9 @@ import Footer from '../components/footer';
 
 const Tokenomics = () => {
   const data = [
-    { name: 'Team Allocation', value: 2, color: '#06b6d4' },
-    { name: 'Marketing Operations', value: 1, color: '#0ea5e9' },
-    { name: 'Treasury & Ecosystem', value: 2, color: '#3b82f6' }
+    { name: '2-Year Lock Period', value: 2, color: '#06b6d4' },
+    { name: 'Marketing Liquid Assets', value: 0.5, color: '#0ea5e9' },
+    { name: 'Working Capital', value: 0.5, color: '#3b82f6' }
   ];
 
   const vestingData = [

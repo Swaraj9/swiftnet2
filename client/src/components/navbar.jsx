@@ -46,8 +46,7 @@ const Navbar = () => {
             </div>
             <div className="flex items-center space-x-1">
               <Link
-                to="/docs"
-                target="_blank"
+                to=""
                 className="flex flex-col items-center space-y-1 hover:scale-110 transition-all duration-300"
               >
                 <Button
@@ -57,14 +56,14 @@ const Navbar = () => {
                   <img
                     width="35"
                     height="35"
-                    src="https://img.icons8.com/color/48/twitterx--v2.png"
+                    src="https://img.icons8.com/?size=100&id=fJp7hepMryiw&format=png&color=000000"
                     alt="Twitter"
                   />
                 </Button>
               </Link>
 
               <Link
-                to="/githuv"
+                to="https://github.com/wibi16/swiftnet2"
                 target="_blank"
                 className="flex flex-col items-center space-y-1 hover:scale-110 transition-all duration-300"
               >
@@ -75,7 +74,7 @@ const Navbar = () => {
                   <img
                     width="35"
                     height="35"
-                    src="https://img.icons8.com/ios-glyphs/30/github.png"
+                    src="https://img.icons8.com/?size=100&id=62856&format=png&color=000000"
                     alt="Github"
                   />
                 </Button>
@@ -87,9 +86,9 @@ const Navbar = () => {
                   className="flex items-center justify-center"
                 >
                   <img
-                    width="35"
-                    height="35"
-                    src="https://img.icons8.com/?size=100&id=100417&format=png&color=000000"
+                    width="50"
+                    height="50"
+                    src="../../public/gitbook.png"
                     alt="Docs"
                   />
                 </Button>
