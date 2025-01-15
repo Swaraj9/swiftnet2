@@ -7,7 +7,7 @@ import ChatResponseUI from "../components/chatui";
 import Navbar from "../components/navbar";
 
 // const socket = io("http://localhost:5000");
-const socket = io("https://aigineer.onrender.com/5000");
+const socket = io("https://aigineer.onrender.com");
 
 function ModeSwitch({ mode, onModeChange }) {
   return (
