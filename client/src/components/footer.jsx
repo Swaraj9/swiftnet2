@@ -23,18 +23,6 @@ const Footer = () => {
                         <ul className="space-y-2">
                             <li>
                                 <a href="#" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white flex items-center group">
-                                    Products
-                                    <MoveRight className="h-4 w-4 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white flex items-center group">
-                                    Solutions
-                                    <MoveRight className="h-4 w-4 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white flex items-center group">
                                     Documentation
                                     <MoveRight className="h-4 w-4 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
                                 </a>
@@ -53,17 +41,18 @@ const Footer = () => {
                                 </a>
                             </li>
                             <li>
-                                <a href="#" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white flex items-center group">
-                                    Careers
+                                <a href="/tokenomics" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white flex items-center group">
+                                    Tokenomics
                                     <MoveRight className="h-4 w-4 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
                                 </a>
                             </li>
                             <li>
-                                <a href="#" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white flex items-center group">
-                                    Contact
+                                <a href="/privacy-policy" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white flex items-center group">
+                                    Privacy Policy
                                     <MoveRight className="h-4 w-4 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
                                 </a>
                             </li>
+                           
                         </ul>
                     </div>
 
@@ -72,17 +61,22 @@ const Footer = () => {
                         <h4 className="text-lg font-semibold mb-4">Connect</h4>
                         <ul className="space-y-2">
                             <li>
-                                <Button
-                                    variant="icon"
-                                    className=" flex items-center justify-center"
-                                >
-                                    <img
-                                        width="35"
-                                        height="35"
-                                        src="https://img.icons8.com/color/48/twitterx--v1.png"
-                                        alt="Twitter"
-                                    />
-                                </Button>
+                                <a href="#" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white flex items-center group">
+                                    Twitter
+                                    <MoveRight className="h-4 w-4 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white flex items-center group">
+                                    Instagram
+                                    <MoveRight className="h-4 w-4 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white flex items-center group">
+                                    Facebook
+                                    <MoveRight className="h-4 w-4 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                </a>
                             </li>
                         </ul>
                     </div>

@@ -7,7 +7,7 @@ import {PrivyProvider} from '@privy-io/react-auth';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
   <PrivyProvider
-      appId="app-id"
+      appId="cm5xy3xab04ghfmtt1pcm83v2"
       config={{
         loginMethods: ['email', 'wallet'],
         appearance: {

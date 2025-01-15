@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from "./ui/button"
 import { Link } from 'react-router';
+import {Badge} from '../components/ui/badge'
 
 const Navbar = () => {
     return (
@@ -16,11 +17,13 @@ const Navbar = () => {
 
                     {/* Desktop Navigation */}
                     <div className="flex items-center justify-center">
-                        <div className="flex items-center space-x-6">
+                    <Badge >CA: f6b4d5a9b09d508bbce9f49ed7b5fa707865e
+                    </Badge>
+                        <div className="flex items-center space-x-1">
                             <Link 
                                 to="/docs" 
                                 target='_blank'
-                                className="flex flex-col items-center space-y-1"
+                                className="flex flex-col items-center space-y-1 hover:scale-110 transition-all duration-300"
                             >
                                 <Button 
                                     variant="icon" 
@@ -29,8 +32,26 @@ const Navbar = () => {
                                     <img 
                                         width="35" 
                                         height="35" 
-                                        src="https://img.icons8.com/color/48/twitterx--v1.png" 
+                                        src="https://img.icons8.com/color/48/twitterx--v2.png" 
                                         alt="Twitter" 
+                                    />
+                                </Button>
+                            </Link>
+
+                            <Link 
+                                to="/githuv" 
+                                target='_blank'
+                                className="flex flex-col items-center space-y-1 hover:scale-110 transition-all duration-300"
+                            >
+                                <Button 
+                                    variant="icon" 
+                                    className=" flex items-center justify-center"
+                                >
+                                    <img 
+                                        width="35" 
+                                        height="35" 
+                                        src="https://img.icons8.com/ios-glyphs/30/github.png"
+                                        alt="Github" 
                                     />
                                 </Button>
                             </Link>
@@ -38,7 +59,7 @@ const Navbar = () => {
                             <div className="flex flex-col items-center space-y-1">
                                 <Button 
                                     variant="icon" 
-                                    className="flex items-center justify-center"
+                                    className="flex items-center justify-center hover:scale-110 transition-all duration-300"
                                 >
                                     <img 
                                         width="35" 

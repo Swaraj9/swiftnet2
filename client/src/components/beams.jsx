@@ -36,7 +36,7 @@ export function AnimatedBeamMultipleOutputDemo({ className }) {
       )}
       ref={containerRef}
     >
-      <div className="flex size-full flex-row items-stretch justify-between gap-10 ">
+      <div className="flex w-[80%] size-full flex-row items-stretch justify-between gap-10 ">
         <div className="flex flex-col justify-center gap-2">
           <Circle ref={div1Ref}>
             <img width="60" height="60" className="mx-auto" src="https://img.icons8.com/ios/50/grand-master-key.png" alt="grand-master-key" />

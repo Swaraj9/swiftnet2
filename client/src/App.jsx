@@ -1,6 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router";
 import Landing from "./pages/Landing";
 import Home from "./pages/home";
+import PrivacyPolicy from "./pages/privacy-policy";
+import Tokenomics from "./pages/tokenomics";
 
 function App() {
   return (
@@ -9,6 +11,8 @@ function App() {
         <Routes>
           <Route path="/chat" element={<Landing />} />
           <Route path="/" element={<Home />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/tokenomics" element={<Tokenomics />} />
         </Routes>
       </BrowserRouter>
     </div>
