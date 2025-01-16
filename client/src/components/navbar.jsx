@@ -22,7 +22,7 @@ const Navbar = () => {
             <div className="flex items-center justify-center hover:scale-105 duration-300">
               <img
                 src="/logo.png"
-                className="w-16 h-auto bg-blend-multiply mix-blend-multiply"
+                className="w-20 h-auto bg-blend-multiply mix-blend-multiply"
                 alt="logo"
               />
               <Link
