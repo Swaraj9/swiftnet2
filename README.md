@@ -29,9 +29,9 @@ Shell Commander (Command Master): The console commander who gets things done
 
 Together, they're like the Avengers of the digital world - each with their own superpower, working in perfect harmony!
 🛠️ Getting Started
-1️⃣ Clone & Install \n
+1️⃣ Clone & Install
 bash 
-git clone https://github.com/Swaraj9/swiftnet2.git \n
+git clone https://github.com/Swaraj9/swiftnet2.git
 cd swiftnet2/python
 uv sync  --all-extras
 source .venv/bin/activate  # Windows users: .venv\Scripts\activate
