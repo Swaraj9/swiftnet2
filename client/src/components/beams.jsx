@@ -61,7 +61,8 @@ export function AnimatedBeamMultipleOutputDemo({ className }) {
         </div>
         <div className="flex flex-col justify-center">
           <Circle ref={div6Ref} className="size-16">
-            <Icons.openai />
+          <img width="80" height="80" className="mx-auto scale-[2.5]" src="/logo.png" alt="grand-master-key" />
+            
           </Circle>
         </div>
         <div className="flex flex-col justify-center">

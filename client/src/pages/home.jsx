@@ -7,6 +7,30 @@ import { MagicCard } from "@/components/ui/magic-card";
 import Footer from "../components/footer";
 import { usePrivy } from '@privy-io/react-auth';
 import { useNavigate } from "react-router";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+
+// Animation variants for different elements
+const fadeInUp = {
+    initial: { opacity: 0, y: 60 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6, ease: "easeOut" }
+};
+
+const fadeIn = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    transition: { duration: 0.8 }
+};
+
+const staggerChildren = {
+    animate: {
+        transition: {
+            staggerChildren: 0.2
+        }
+    }
+};
 
 const Home = () => {
     const { login } = usePrivy();
@@ -27,17 +51,35 @@ const Home = () => {
             
             {/* Hero Section */}
             <div className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-b from-white to-cyan-100 " />
+                <div className="absolute inset-0 bg-gradient-to-b from-white to-cyan-100" />
                 
-                <h1 className="z-10 text-center lg:text-8xl md:text-7xl text-4xl font-bold bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent animate-gradient">
+                <motion.h1 
+                    initial="initial"
+                    whileInView="animate"
+                    viewport={{ once: true }}
+                    variants={fadeInUp}
+                    className="z-10 text-center lg:text-8xl md:text-7xl text-4xl font-bold bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent animate-gradient"
+                >
                     SwiftNet
-                </h1>
+                </motion.h1>
                 
-                <p className="z-10 lg:w-1/3 md:w-1/2 w-full text-center text-xl leading-relaxed my-4 text-gray-700 dark:text-gray-300">
+                <motion.p 
+                    initial="initial"
+                    whileInView="animate"
+                    viewport={{ once: true }}
+                    variants={fadeInUp}
+                    className="z-10 lg:w-1/3 md:w-1/2 w-full text-center text-xl leading-relaxed my-4 text-gray-700 dark:text-gray-300"
+                >
                     Dynamic platform that seamlessly integrates multiple AI agents for smarter and more accurate results.
-                </p>
+                </motion.p>
 
-                <div className="z-10 mt-8">
+                <motion.div 
+                    initial="initial"
+                    whileInView="animate"
+                    viewport={{ once: true }}
+                    variants={fadeIn}
+                    className="z-10 mt-8"
+                >
                     <ShimmerButton 
                         className="shadow-lg hover:shadow-cyan-500/50 transition-all duration-300" 
                         onClick={handleLogin}
@@ -46,7 +88,7 @@ const Home = () => {
                             Get Started
                         </span>
                     </ShimmerButton>
-                </div>
+                </motion.div>
 
                 <DotPattern
                     width={10}
@@ -58,27 +100,59 @@ const Home = () => {
             {/* Productivity Section */}
             <div className="bg-gradient-to-b from-cyan-100 to-white dark:from-gray-800 dark:to-gray-900">
                 <div className="min-h-screen container mx-auto py-20">
-                    <h2 className="bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent font-bold text-6xl text-center mb-8">
+                    <motion.h2 
+                        initial="initial"
+                        whileInView="animate"
+                        viewport={{ once: true }}
+                        variants={fadeInUp}
+                        className="bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent font-bold text-6xl text-center mb-8"
+                    >
                         Be 5x more Productive
-                    </h2>
+                    </motion.h2>
 
-                    <p className="text-center text-xl mx-auto my-8 w-full text-gray-700 dark:text-gray-300 leading-relaxed max-w-3xl">
+                    <motion.p 
+                        initial="initial"
+                        whileInView="animate"
+                        viewport={{ once: true }}
+                        variants={fadeInUp}
+                        className="text-center text-xl mx-auto my-8 w-full text-gray-700 dark:text-gray-300 leading-relaxed max-w-3xl"
+                    >
                         Work like never before. Elevate your tasks with specialized agents working together to complete your work. 
                         Precise and reliable results increase your productivity rate by several folds.
-                    </p>
+                    </motion.p>
 
-                    <AnimatedBeamMultipleOutputDemo className="my-10" />
+                    <motion.div 
+                        initial="initial"
+                        whileInView="animate"
+                        viewport={{ once: true }}
+                        variants={fadeIn}
+                        className="my-10"
+                    >
+                        <AnimatedBeamMultipleOutputDemo />
+                    </motion.div>
                 </div>
             </div>
 
             {/* Features Section */}
             <div className="bg-white dark:bg-gray-900 py-20">
                 <div className="container mx-auto">
-                    <h2 className="bg-gradient-to-r py-4 from-cyan-500 to-blue-500 bg-clip-text text-transparent font-bold text-6xl text-center mb-20">
+                    <motion.h2 
+                        initial="initial"
+                        whileInView="animate"
+                        viewport={{ once: true }}
+                        variants={fadeInUp}
+                        className="bg-gradient-to-r py-4 from-cyan-500 to-blue-500 bg-clip-text text-transparent font-bold text-6xl text-center mb-20"
+                    >
                         Multi Agent for Multi Purpose
-                    </h2>
+                    </motion.h2>
 
-                    <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
+                    <motion.div 
+                        initial="initial"
+                        whileInView="animate"
+                        viewport={{ once: true }}
+                        variants={staggerChildren}
+                        className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8"
+                    >
                         {[
                             {
                                 icon: "https://img.icons8.com/ios/50/grand-master-key.png",
@@ -106,27 +180,31 @@ const Home = () => {
                                 description: "Executes system commands and automates terminal tasks, enhancing workflow with streamlined processes."
                             }
                         ].map((feature, index) => (
-                            <MagicCard
+                            <motion.div
                                 key={index}
-                                className="cursor-pointer flex-col items-center justify-center p-8 shadow-xl hover:shadow-2xl transition-all duration-300"
-                                gradientColor="rgba(6, 182, 212, 0.1)"
+                                variants={fadeInUp}
                             >
-                                <img 
-                                    width="60" 
-                                    height="60" 
-                                    className="mx-auto dark:invert" 
-                                    src={feature.icon} 
-                                    alt={feature.title}
-                                />
-                                <h3 className="text-2xl font-semibold text-center py-4 text-gray-800 dark:text-white">
-                                    {feature.title}
-                                </h3>
-                                <p className="px-4 text-center text-gray-600 dark:text-gray-300">
-                                    {feature.description}
-                                </p>
-                            </MagicCard>
+                                <MagicCard
+                                    className="cursor-pointer flex-col items-center justify-center p-8 shadow-xl hover:shadow-2xl transition-all duration-300"
+                                    gradientColor="rgba(6, 182, 212, 0.1)"
+                                >
+                                    <img 
+                                        width="60" 
+                                        height="60" 
+                                        className="mx-auto dark:invert" 
+                                        src={feature.icon} 
+                                        alt={feature.title}
+                                    />
+                                    <h3 className="text-2xl font-semibold text-center py-4 text-gray-800 dark:text-white">
+                                        {feature.title}
+                                    </h3>
+                                    <p className="px-4 text-center text-gray-600 dark:text-gray-300">
+                                        {feature.description}
+                                    </p>
+                                </MagicCard>
+                            </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </div>
             <Footer />

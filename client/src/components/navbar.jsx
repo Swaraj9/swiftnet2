@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from "./ui/button"
 import { Link } from 'react-router';
-import {Badge} from '../components/ui/badge'
+import { Badge } from '../components/ui/badge'
 
 const Navbar = () => {
     return (
@@ -10,75 +10,65 @@ const Navbar = () => {
                 <div className="flex items-center justify-between h-16">
                     {/* Logo/Brand */}
                     <div className="flex-shrink-0">
+                       <div className='flex items-center justify-center'>
+                       <img
+                            src="/logo.png"
+                            className='w-16 h-auto bg-blend-multiply mix-blend-multiply'
+                            alt="logo"
+                        />
                         <Link to="/" className="text-xl font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 transition-colors">
                             SwiftNet
                         </Link>
+                       </div>
                     </div>
 
                     {/* Desktop Navigation */}
                     <div className="flex items-center justify-center">
-                    <Badge >CA: f6b4d5a9b09d508bbce9f49ed7b5fa707865e
-                    </Badge>
+                        <Badge >CA: f6b4d5a9b09d508bbce9f49ed7b5fa707865e
+                        </Badge>
                         <div className="flex items-center space-x-1">
-                            <Link 
-                                to="/docs" 
+                            <Link
+                                to="/docs"
                                 target='_blank'
                                 className="flex flex-col items-center space-y-1 hover:scale-110 transition-all duration-300"
                             >
-                                <Button 
-                                    variant="icon" 
+                                <Button
+                                    variant="icon"
                                     className=" flex items-center justify-center"
                                 >
-                                    <img 
-                                        width="35" 
-                                        height="35" 
-                                        src="https://img.icons8.com/color/48/twitterx--v2.png" 
-                                        alt="Twitter" 
+                                    <img
+                                        width="35"
+                                        height="35"
+                                        src="https://img.icons8.com/color/48/twitterx--v2.png"
+                                        alt="Twitter"
                                     />
                                 </Button>
                             </Link>
 
-                            <Link 
-                                to="/githuv" 
-                                target='_blank'
-                                className="flex flex-col items-center space-y-1 hover:scale-110 transition-all duration-300"
-                            >
-                                <Button 
-                                    variant="icon" 
-                                    className=" flex items-center justify-center"
-                                >
-                                    <img 
-                                        width="35" 
-                                        height="35" 
-                                        src="https://img.icons8.com/ios-glyphs/30/github.png"
-                                        alt="Github" 
-                                    />
-                                </Button>
-                            </Link>
-                            
+
                             <div className="flex flex-col items-center space-y-1">
-                                <Button 
-                                    variant="icon" 
+                                <Button
+                                    variant="icon"
                                     className="flex items-center justify-center hover:scale-110 transition-all duration-300"
                                 >
-                                    <img 
-                                        width="35" 
-                                        height="35" 
-                                        src="https://img.icons8.com/?size=100&id=106562&format=png&color=000000" 
-                                        alt="Docs" 
+                                    <img
+                                        width="35"
+                                        height="35"
+                                        src="https://img.icons8.com/?size=100&id=106562&format=png&color=000000"
+                                        alt="Docs"
                                     />
                                 </Button>
                             </div>
                             <div className="flex flex-col items-center space-y-1">
-                                <Button 
-                                    variant="icon" 
+                                <Button
+                                    variant="icon"
                                     className="flex items-center justify-center"
                                 >
-                                    <img 
-                                        width="35" 
-                                        height="35" 
-                                        src="https://img.icons8.com/ios/50/google-docs.png" 
-                                        alt="Docs" 
+                                    <img
+                                        width="35"
+                                        height="35"
+                                        src="https://img.icons8.com/ios/50/google-docs.png"
+                                        alt="Docs"
                                     />
                                 </Button>
                             </div>
