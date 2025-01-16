@@ -1,215 +1,71 @@
-# Magentic-One
+## 🚀 SwiftNet: Your AI Dream Team for the Digital World
 
-> [!IMPORTANT]
-> **Note (December 22nd, 2024):** We recommend using the [Magentic-One API](https://github.com/microsoft/autogen/tree/main/python/packages/autogen-ext/src/autogen_ext/teams/magentic_one.py) as the preferred way to interact with Magentic-One. The API provides a more streamlined and robust interface for integrating Magentic-One into your projects.
+🌟 Big News (December 22nd, 2024): Want to harness the power of SwiftNet? Check out our shiny new SwiftNet API! It's like having a Swiss Army knife for your AI projects.
 
-> [!CAUTION]
-> Using Magentic-One involves interacting with a digital world designed for humans, which carries inherent risks. To minimize these risks, consider the following precautions:
->
-> 1. **Use Containers**: Run all tasks in docker containers to isolate the agents and prevent direct system attacks.
-> 2. **Virtual Environment**: Use a virtual environment to run the agents and prevent them from accessing sensitive data.
-> 3. **Monitor Logs**: Closely monitor logs during and after execution to detect and mitigate risky behavior.
-> 4. **Human Oversight**: Run the examples with a human in the loop to supervise the agents and prevent unintended consequences.
-> 5. **Limit Access**: Restrict the agents' access to the internet and other resources to prevent unauthorized actions.
-> 6. **Safeguard Data**: Ensure that the agents do not have access to sensitive data or resources that could be compromised. Do not share sensitive information with the agents.
-> Be aware that agents may occasionally attempt risky actions, such as recruiting humans for help or accepting cookie agreements without human involvement. Always ensure agents are monitored and operate within a controlled environment to prevent unintended consequences. Moreover, be cautious that Magentic-One may be susceptible to prompt injection attacks from webpages.
+## 🛡️ Safety First!
+Before we dive into the cool stuff, let's talk safety (because nobody likes a robot uprising):
 
-> [!NOTE]
-> This code is currently being ported to AutoGen AgentChat. If you want to build on top of Magentic-One, we recommend waiting for the port to be completed. In the meantime, you can use this codebase to experiment with Magentic-One.
+#### 🐳 Container Magic: Keep those agents in Docker containers - think of it as their playpen
+#### 🎭 Virtual Environment: Give them their own sandbox to play in
+#### 👀 Watch Those Logs: Keep an eye on what they're up to
+#### 🧑‍💼 Human Supervision: Have a human copilot for the ride
+#### 🔒 Limited Access: Don't give them the keys to everything
+#### 🔐 Data Protection: Keep the sensitive stuff under lock and key
 
+Remember: These agents are like enthusiastic interns - they mean well but sometimes need supervision to avoid accepting those cookie agreements without asking!
+## 🎮 Meet Your New AI Dream Team
+Imagine having a squad of specialized AI agents working together to tackle your toughest digital challenges. That's SwiftNet! Our system brings together a crack team of AI specialists who can handle everything from web browsing to coding.
+Show Image
+Above: Watch our AI dream team tackle a complex task like a well-oiled machine!
+🏗️ The Dream Team Lineup
+Show Image
+🎯 Meet the Squad:
 
-We are introducing Magentic-One, our new generalist multi-agent system for solving open-ended web and file-based tasks across a variety of domains. Magentic-One represents a significant step towards developing agents that can complete tasks that people encounter in their work and personal lives.
+Task Master (Team Captain): The mastermind who keeps everyone on track
+BrowserBot (Internet Explorer Extraordinaire): Our web-savvy agent who surfs the internet like a pro
+FileScout (File Whisperer): The one who knows all your files inside and out
+CodeSmith (Code Ninja): Your personal programming genius
+Shell Commander (Command Master): The console commander who gets things done
 
-Find additional information about Magentic-one in our [blog post](https://aka.ms/magentic-one-blog) and [technical report](https://arxiv.org/abs/2411.04468).
+Together, they're like the Avengers of the digital world - each with their own superpower, working in perfect harmony!
+🛠️ Getting Started
+1️⃣ Clone & Install \n
+bash 
+git clone https://github.com/Swaraj9/swiftnet2.git \n
+cd swiftnet2/python
+uv sync  --all-extras
+source .venv/bin/activate  # Windows users: .venv\Scripts\activate
+2️⃣ Install SwiftNet
+bash
+cd packages/swiftnet
+pip install -e .
+3️⃣ Set Up Your Tools
 
-![](./imgs/autogen-magentic-one-example.png)
+🎭 Install Playwright: playwright install --with-deps chromium
+🐳 Make sure Docker is running
+⚙️ Configure your environment variables
 
-> _Example_: The figure above illustrates Magentic-One mutli-agent team completing a complex task from the GAIA benchmark. Magentic-One's Orchestrator agent creates a plan, delegates tasks to other agents, and tracks progress towards the goal, dynamically revising the plan as needed. The Orchestrator can delegate tasks to a FileSurfer agent to read and handle files, a WebSurfer agent to operate a web browser, or a Coder or Computer Terminal agent to write or execute code, respectively.
+4️⃣ Take It For a Spin
+bash
+# Basic run with logs
+python examples/example.py --logs_dir ./logs
 
-## Architecture
+# Want to be in the driver's seat?
+python examples/example.py --logs_dir ./logs --hil_mode
 
-
-
-![](./imgs/autogen-magentic-one-agents.png)
-
-Magentic-One work is based on a multi-agent architecture where a lead Orchestrator agent is responsible for high-level planning, directing other agents and tracking task progress. The Orchestrator begins by creating a plan to tackle the task, gathering needed facts and educated guesses in a Task Ledger that is maintained. At each step of its plan, the Orchestrator creates a Progress Ledger where it self-reflects on task progress and checks whether the task is completed. If the task is not yet completed, it assigns one of Magentic-One other agents a subtask to complete. After the assigned agent completes its subtask, the Orchestrator updates the Progress Ledger and continues in this way until the task is complete. If the Orchestrator finds that progress is not being made for enough steps, it can update the Task Ledger and create a new plan. This is illustrated in the figure above; the Orchestrator work is thus divided into an outer loop where it updates the Task Ledger and an inner loop to update the Progress Ledger.
-
-Overall, Magentic-One consists of the following agents:
-- Orchestrator: the lead agent responsible for task decomposition and planning, directing other agents in executing subtasks, tracking overall progress, and taking corrective actions as needed
-- WebSurfer: This is an LLM-based agent that is proficient in commanding and managing the state of a Chromium-based web browser. With each incoming request, the WebSurfer performs an action on the browser then reports on the new state of the web page   The action space of the WebSurfer includes navigation (e.g. visiting a URL, performing a web search);  web page actions (e.g., clicking and typing); and reading actions (e.g., summarizing or answering questions). The WebSurfer relies on the accessibility tree of the browser and on set-of-marks prompting to perform its actions.
-- FileSurfer: This is an LLM-based agent that commands a markdown-based file preview application to read local files of most types. The FileSurfer can also perform common navigation tasks such as listing the contents of directories and navigating a folder structure.
-- Coder: This is an LLM-based agent specialized through its system prompt for writing code, analyzing information collected from the other agents, or creating new artifacts.
-- ComputerTerminal: Finally, ComputerTerminal provides the team with access to a console shell where the Coder’s programs can be executed, and where new programming libraries can be installed.
-
-Together, Magentic-One’s agents provide the Orchestrator with the tools and capabilities that it needs to solve a broad variety of open-ended problems, as well as the ability to autonomously adapt to, and act in, dynamic and ever-changing web and file-system environments.
-
-While the default multimodal LLM we use for all agents is GPT-4o, Magentic-One is model agnostic and can incorporate heterogonous models to support different capabilities or meet different cost requirements when getting tasks done. For example, it can use different LLMs and SLMs and their specialized versions to power different agents. We recommend a strong reasoning model for the Orchestrator agent such as GPT-4o. In a different configuration of Magentic-One, we also experiment with using OpenAI o1-preview for the outer loop of the Orchestrator and for the Coder, while other agents continue to use GPT-4o.
-
-
-### Logging in Team One Agents
-
-Team One agents can emit several log events that can be consumed by a log handler (see the example log handler in [utils.py](src/autogen_magentic_one/utils.py)). A list of currently emitted events are:
-
-- OrchestrationEvent : emitted by a an [Orchestrator](src/autogen_magentic_one/agents/base_orchestrator.py) agent.
-- WebSurferEvent : emitted by a [WebSurfer](src/autogen_magentic_one/agents/multimodal_web_surfer/multimodal_web_surfer.py) agent.
-
-In addition, developers can also handle and process logs generated from the AutoGen core library (e.g., LLMCallEvent etc). See the example log handler in [utils.py](src/autogen_magentic_one/utils.py) on how this can be implemented. By default, the logs are written to a file named `log.jsonl` which can be configured as a parameter to the defined log handler. These logs can be parsed to retrieved data agent actions.
-
-# Setup and Usage
-
-You can install the Magentic-One package and then run the example code to see how the agents work together to accomplish a task.
-
-1. Clone the code and install the package:
-
-    The easiest way to install is with the [uv package installer](https://docs.astral.sh/uv/getting-started/installation/) which you need to install separately, however, this is not necessary.
-
-    Clone repo, use uv to setup and activate virtual environment:
-    ```bash
-    git clone https://github.com/microsoft/autogen.git
-    cd autogen/python
-    uv sync  --all-extras
-    source .venv/bin/activate
-    ```
-   For Windows, run `.venv\Scripts\activate` to activate the environment.
-
-2. Install magentic-one from source:
-    ```bash
-    cd packages/autogen-magentic-one
-    pip install -e .
-    ```
-
-    The following instructions are for running the example code:
-
-3. Configure the environment variables for the chat completion client. See instructions below [Environment Configuration for Chat Completion Client](#environment-configuration-for-chat-completion-client).
-4. Magentic-One code uses code execution, you need to have [Docker installed](https://docs.docker.com/engine/install/) to run any examples.
-5. Magentic-One uses playwright to interact with web pages. You need to install the playwright dependencies. Run the following command to install the playwright dependencies:
-
-```bash
-playwright install --with-deps chromium
-```
-6. Now you can run the example code to see how the agents work together to accomplish a task.
-
-> [!CAUTION]
-> The example code may download files from the internet, execute code, and interact with web pages. Ensure you are in a safe environment before running the example code.
-
-> [!NOTE]
-> You will need to ensure Docker is running prior to running the example.
-
-  ```bash
-
-  # Specify logs directory
-  python examples/example.py --logs_dir ./logs
-
-  # Enable human-in-the-loop mode
-  python examples/example.py --logs_dir ./logs --hil_mode
-
-  # Save screenshots of browser
-  python examples/example.py --logs_dir ./logs --save_screenshots
-  ```
-
-  Arguments:
-
-  - logs_dir: (Required) Directory for logs, downloads and screenshots of browser (default: current directory)
-  - hil_mode: (Optional) Enable human-in-the-loop mode (default: disabled)
-  - save_screenshots: (Optional) Save screenshots of browser (default: disabled)
-
-7. [Preview] We have a preview API for Magentic-One.
- You can use the `MagenticOneHelper` class to interact with the system and stream logs. See the [interface README](interface/README.md) for more details.
-
-
-## Environment Configuration for Chat Completion Client
-
-This guide outlines how to structure the config to load a ChatCompletionClient for Magentic-One.
-
-```python
-from autogen_core.models import ChatCompletionClient
-
-config = {}
-client = ChatCompletionClient.load_component(config)
-```
-
-Currently, Magentic-One only supports OpenAI's GPT-4o as the underlying LLM.
-
-### Azure OpenAI service
-
-To configure for Azure OpenAI service, use the following config:
-
-```json
-{
-    "provider": "AzureOpenAIChatCompletionClient",
-    "config": {
-        "model": "gpt-4o-2024-05-13",
-        "azure_endpoint": "https://{your-custom-endpoint}.openai.azure.com/",
-        "azure_deployment": "{your-azure-deployment}",
-        "api_version": "2024-06-01",
-        "azure_ad_token_provider": {
-            "provider": "autogen_ext.auth.azure.AzureTokenProvider",
-            "config": {
-                "provider_kind": "DefaultAzureCredential",
-                "scopes": [
-                    "https://cognitiveservices.azure.com/.default"
-                ]
-            }
-        }
-    }
-}
-```
-
-This project uses Azure OpenAI service with [Entra ID authentcation by default](https://learn.microsoft.com/azure/ai-services/openai/how-to/managed-identity). If you run the examples on a local device, you can use the Azure CLI cached credentials for testing:
-
-Log in to Azure using `az login`, and then run the examples. The account used must have [RBAC permissions](https://learn.microsoft.com/azure/ai-services/openai/how-to/role-based-access-control) like `Azure Cognitive Services OpenAI User` for the OpenAI service; otherwise, you will receive the error: Principal does not have access to API/Operation.
-
-Note that even if you are the owner of the subscription, you still need to grant the necessary Azure Cognitive Services OpenAI permissions to call the API.
-
-Or, to use an API key:
-```json
-{
-    "provider": "AzureOpenAIChatCompletionClient",
-    "config": {
-        "model": "gpt-4o-2024-05-13",
-        "azure_endpoint": "https://{your-custom-endpoint}.openai.azure.com/",
-        "azure_deployment": "{your-azure-deployment}",
-        "api_version": "2024-06-01",
-        "api_key": "REPLACE_WITH_YOUR_API_KEY"
-    }
-}
-```
-
-### With OpenAI
-
-To configure for OpenAI, use the following config:
-
-```json
-{
-  "provider": "OpenAIChatCompletionClient",
-  "config": {
-      "model": "gpt-4o-2024-05-13",
-      "api_key": "REPLACE_WITH_YOUR_API_KEY"
-  }
-}
-```
-
-Feel free to replace the model with newer versions of gpt-4o if needed.
-
-### Other Keys (Optional)
-
-Some functionalities, such as using web-search requires an API key for Bing.
-You can set it using:
-
-```bash
-export BING_API_KEY=xxxxxxx
-```
-
-## Citation
-
-```
-@misc{fourney2024magenticonegeneralistmultiagentsolving,
-      title={Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks},
-      author={Adam Fourney and Gagan Bansal and Hussein Mozannar and Cheng Tan and Eduardo Salinas and Erkang and Zhu and Friederike Niedtner and Grace Proebsting and Griffin Bassman and Jack Gerrits and Jacob Alber and Peter Chang and Ricky Loynd and Robert West and Victor Dibia and Ahmed Awadallah and Ece Kamar and Rafah Hosn and Saleema Amershi},
+# Capture the journey
+python examples/example.py --logs_dir ./logs --save_screenshots
+📚 Configuration
+Need to set up your chat completion client? We've got you covered! Check out our detailed configuration guide in the docs.
+🏆 Give Credit Where Credit's Due
+If you use SwiftNet in your research, please cite:
+bibtexCopy@misc{swiftnet2024generalistmultiagentsolving,
+      title={SwiftNet: A Generalist Multi-Agent System for Solving Complex Tasks},
+      author={[Author List]},
       year={2024},
       eprint={2411.04468},
       archivePrefix={arXiv},
       primaryClass={cs.AI},
       url={https://arxiv.org/abs/2411.04468},
 }
-```
+Ready to unleash the power of AI teamwork? Let's get started! 🚀
