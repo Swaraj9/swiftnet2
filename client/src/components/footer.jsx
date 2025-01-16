@@ -41,10 +41,10 @@ const Footer = () => {
                                 </a>
                             </li>
                             <li>
-                                <a href="/tokenomics" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white flex items-center group">
+                                <Link to="/tokenomics" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white flex items-center group">
                                     Tokenomics
                                     <MoveRight className="h-4 w-4 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
-                                </a>
+                                </Link>
                             </li>
                             <li>
                                 <a href="/privacy-policy" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white flex items-center group">
