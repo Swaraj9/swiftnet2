@@ -28,18 +28,16 @@ CodeSmith (Code Ninja): Your personal programming genius
 Shell Commander (Command Master): The console commander who gets things done
 
 Together, they're like the Avengers of the digital world - each with their own superpower, working in perfect harmony!
-🛠️ Getting Started
-1️⃣ Clone & Install
-bash 
-git clone https://github.com/Swaraj9/swiftnet2.git
+#### 🛠️ Getting Started
+- 1️⃣ Clone & Install
+``git clone https://github.com/Swaraj9/swiftnet2.git
 cd swiftnet2/python
 uv sync  --all-extras
-source .venv/bin/activate  # Windows users: .venv\Scripts\activate
-2️⃣ Install SwiftNet
-bash
-cd packages/swiftnet
-pip install -e .
-3️⃣ Set Up Your Tools
+source .venv/bin/activate  # Windows users: .venv\Scripts\activate``
+- 2️⃣ Install SwiftNet
+``cd packages/swiftnet
+pip install -e .``
+- 3️⃣ Set Up Your Tools
 
 🎭 Install Playwright: playwright install --with-deps chromium
 🐳 Make sure Docker is running
