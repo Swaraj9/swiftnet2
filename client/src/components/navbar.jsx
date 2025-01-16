@@ -85,7 +85,7 @@ const Navbar = () => {
 
               {/* Docs Link */}
               <Link
-                to="/docs"
+                to="https://kiwis-organization-2.gitbook.io/swiftnet"
                 className="flex flex-col items-center hover:scale-110 transition-all duration-300"
               >
                 <Button variant="icon" className="flex items-center justify-center">
